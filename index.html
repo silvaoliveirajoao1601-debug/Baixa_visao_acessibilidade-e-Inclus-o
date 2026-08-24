@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Visão & Acessibilidade</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8fb;
+      color: #17212b;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* CABEÇALHO */
+
+    header {
+      background: linear-gradient(135deg, #075985, #0284c7);
+      color: white;
+      padding: 20px 6%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 12px rgba(0,0,0,.2);
+    }
+
+    .topo {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,.2);
+    }
+
+    /* ACESSIBILIDADE */
+
+    .barra-acessibilidade {
+      background: #e0f2fe;
+      padding: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #075985;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 15px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0c4a6e;
+    }
+
+    .volume {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 520px;
+      padding: 70px 6%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255,255,255,.3),
+          transparent 25%
+        ),
+        linear-gradient(135deg, #0ea5e9, #0369a1);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .botao {
+      display: inline-block;
+      background: white;
+      color: #075985;
+      padding: 15px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* SEÇÕES */
+
+    section {
+      padding: 70px 6%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .titulo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .titulo h2 {
+      color: #075985;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .titulo p {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.1);
+      border-left: 6px solid #0284c7;
+    }
+
+    .icone {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: #075985;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    /* PROBLEMAS */
+
+    .problemas {
+      background: #e0f2fe;
+    }
+
+    /* ACESSIBILIDADE */
+
+    .acessibilidade {
+      background: #0f172a;
+      color: white;
+    }
+
+    .acessibilidade .titulo h2 {
+      color: #7dd3fc;
+    }
+
+    .acessibilidade .card {
+      background: #1e293b;
+      color: white;
+      border-left-color: #38bdf8;
+    }
+
+    .acessibilidade .card h3 {
+      color: #7dd3fc;
+    }
+
+    /* OBJETIVO */
+
+    .objetivo {
+      background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #ecfeff
+      );
+    }
+
+    .objetivo-box {
+      max-width: 900px;
+      margin: auto;
+      padding: 35px;
+      background: white;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,.1);
+    }
+
+    /* EQUIPE */
+
+    .equipe-card {
+      text-align: center;
+      border-left: none;
+      border-top: 6px solid #0284c7;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+
+      border-radius: 50%;
+
+      background: #0284c7;
+      color: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      background: #020617;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    /* ALTO CONTRASTE */
+
+    body.alto-contraste {
+      background: black;
+      color: white;
+    }
+
+    body.alto-contraste header,
+    body.alto-contraste .hero {
+      background: black;
+    }
+
+    body.alto-contraste .card,
+    body.alto-contraste .objetivo-box {
+      background: black;
+      color: white;
+      border: 2px solid white;
+    }
+
+    body.alto-contraste .problemas,
+    body.alto-contraste .objetivo,
+    body.alto-contraste .barra-acessibilidade {
+      background: #111;
+      color: white;
+    }
+
+    body.alto-contraste h2,
+    body.alto-contraste h3 {
+      color: yellow !important;
+    }
+
+    /* CELULAR */
+
+    @media(max-width:700px) {
+
+      header {
+        position: static;
+      }
+
+      .topo {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: 450px;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+
+  <header>
+
+    <div class="topo">
+
+      <div class="logo">
+        👁️ Visão & Acessibilidade
+      </div>
+
+      <nav aria-label="Menu principal">
+
+        <a href="#inicio">Início</a>
+
+        <a href="#fatores">
+          Fatores da visão
+        </a>
+
+        <a href="#problemas">
+          Problemas
+        </a>
+
+        <a href="#acessibilidade">
+          Acessibilidade
+        </a>
+
+        <a href="#equipe">
+          Equipe
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- FERRAMENTAS -->
+
+  <div class="barra-acessibilidade">
+
+    <button onclick="aumentarFonte()">
+      A+ Aumentar texto
+    </button>
+
+    <button onclick="diminuirFonte()">
+      A− Diminuir texto
+    </button>
+
+    <button onclick="ativarContraste()">
+      ◐ Alto contraste
+    </button>
+
+    <button onclick="lerPagina()">
+      🔊 Ler página
+    </button>
+
+    <button onclick="pararLeitura()">
+      ⏹ Parar leitura
+    </button>
+
+    <button id="botaoASMR" onclick="alternarASMR()">
+      ⌨️ ASMR desligado
+    </button>
+
+    <label class="volume">
+
+      🔉
+
+      <input
+        type="range"
+        id="volumeASMR"
+        min="0"
+        max="0.12"
+        step="0.01"
+        value="0.04"
+      >
+
+    </label>
+
+  </div>
+
+
+  <main>
+
+    <!-- INÍCIO -->
+
+    <section class="hero" id="inicio">
+
+      <div class="hero-content">
+
+        <h1>
+          Principais fatores da visão
+          e seus problemas
+        </h1>
+
+        <p>
+          Um site educativo criado para explicar
+          a visão de forma simples, acessível
+          e agradável.
+        </p>
+
+        <a class="botao" href="#fatores">
+          Conheça o projeto
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- FATORES -->
+
+    <section id="fatores">
+
+      <div class="container">
+
+        <div class="titulo">
+
+          <h2>
+            👁️ Principais fatores da visão
+          </h2>
+
+          <p>
+            A visão depende de vários fatores
+            que trabalham juntos.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <article class="card">
+
+            <div class="icone">💡</div>
+
+            <h3>Luz</h3>
+
+            <p>
+              A luz permite que nossos olhos
+              recebam informações sobre os
+              objetos e o ambiente.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">🎨</div>
+
+            <h3>Cores</h3>
+
+            <p>
+              Os olhos percebem diferentes
+              comprimentos de onda da luz,
+              permitindo identificar cores.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">🔍</div>
+
+            <h3>Foco</h3>
+
+            <p>
+              O foco permite perceber objetos
+              de maneira nítida.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">👀</div>
+
+            <h3>Campo visual</h3>
+
+            <p>
+              É a área que conseguimos perceber
+              quando olhamos para frente.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">📏</div>
+
+            <h3>Acuidade visual</h3>
+
+            <p>
+              Está relacionada à capacidade de
+              enxergar detalhes.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">🧠</div>
+
+            <h3>Percepção</h3>
+
+            <p>
+              O cérebro interpreta as informações
+              recebidas pelos olhos.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROBLEMAS -->
+
+    <section class="problemas" id="problemas">
+
+      <div class="container">
+
+        <div class="titulo">
+
+          <h2>
+            ⚠️ Problemas da visão
+          </h2>
+
+          <p>
+            Existem diferentes condições que
+            podem alterar a maneira de enxergar.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <article class="card">
+
+            <div class="icone">🔭</div>
+
+            <h3>Miopia</h3>
+
+            <p>
+              Dificuldade para enxergar objetos
+              distantes com nitidez.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">📖</div>
+
+            <h3>Hipermetropia</h3>
+
+            <p>
+              Pode causar dificuldade para
+              enxergar objetos próximos.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">⭕</div>
+
+            <h3>Astigmatismo</h3>
+
+            <p>
+              Pode causar visão borrada ou
+              distorcida.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">👓</div>
+
+            <h3>Presbiopia</h3>
+
+            <p>
+              Alteração relacionada à idade
+              que pode dificultar a visão de perto.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">🌈</div>
+
+            <h3>Daltonismo</h3>
+
+            <p>
+              Pode alterar a percepção
+              de determinadas cores.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">👁️</div>
+
+            <h3>Baixa visão</h3>
+
+            <p>
+              Visão reduzida que pode permanecer
+              mesmo com correção adequada.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">🌑</div>
+
+            <h3>Cegueira</h3>
+
+            <p>
+              Pode envolver perda total ou
+              muito grave da visão.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ACESSIBILIDADE -->
+
+    <section
+      class="acessibilidade"
+      id="acessibilidade"
+    >
+
+      <div class="container">
+
+        <div class="titulo">
+
+          <h2>
+            ♿ Acessibilidade
+          </h2>
+
+          <p>
+            Recursos criados para facilitar
+            a utilização do site.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <article class="card">
+
+            <div class="icone">🔠</div>
+
+            <h3>Letras maiores</h3>
+
+            <p>
+              Aumente o tamanho do texto
+              usando o botão A+.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">◐</div>
+
+            <h3>Alto contraste</h3>
+
+            <p>
+              Melhora a diferença entre
+              texto e fundo.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">🔊</div>
+
+            <h3>Leitura em voz alta</h3>
+
+            <p>
+              O navegador pode ler o conteúdo
+              da página.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">⌨️</div>
+
+            <h3>Som ASMR</h3>
+
+            <p>
+              Um som suave de teclado acompanha
+              a navegação e a digitação.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">🧭</div>
+
+            <h3>Navegação simples</h3>
+
+            <p>
+              O menu facilita encontrar
+              as informações.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icone">📝</div>
+
+            <h3>Texto simples</h3>
+
+            <p>
+              As informações são apresentadas
+              de forma fácil de compreender.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- OBJETIVO -->
+
+    <section class="objetivo">
+
+      <div class="container">
+
+        <div class="titulo">
+
+          <h2>
+            🎯 Objetivo do projeto
+          </h2>
+
+        </div>
+
+
+        <div class="objetivo-box">
+
+          <p>
+            Nosso objetivo é ajudar pessoas
+            com deficiência visual a compreender
+            melhor como funciona a visão,
+            conhecer seus principais problemas
+            e ter acesso a informações de maneira
+            mais acessível.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EQUIPE -->
+
+    <section id="equipe">
+
+      <div class="container">
+
+        <div class="titulo">
+
+          <h2>
+            👥 Nossa equipe
+          </h2>
+
+          <p>
+            Este projeto foi desenvolvido por:
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <article class="card equipe-card">
+
+            <div class="avatar">
+              JP
+            </div>
+
+            <h3>
+              João Pietro
+            </h3>
+
+          </article>
+
+
+          <article class="card equipe-card">
+
+            <div class="avatar">
+              F
+            </div>
+
+            <h3>
+              Felipe
+            </h3>
+
+          </article>
+
+
+          <article class="card equipe-card">
+
+            <div class="avatar">
+              H
+            </div>
+
+            <h3>
+              Hendrik
+            </h3>
+
+          </article>
+
+
+          <article class="card equipe-card">
+
+            <div class="avatar">
+              B
+            </div>
+
+            <h3>
+              Bernardo
+            </h3>
+
+          </article>
+
+
+          <article class="card equipe-card">
+
+            <div class="avatar">
+              JG
+            </div>
+
+            <h3>
+              João Gabriel
+            </h3>
+
+          </article>
+
+
+          <article class="card equipe-card">
+
+            <div class="avatar">
+              P
+            </div>
+
+            <h3>
+              Pedro
+            </h3>
+
+          </article>
+
+
+          <article class="card equipe-card">
+
+            <div class="avatar">
+              RK
+            </div>
+
+            <h3>
+              Rafael Kluskowski
+            </h3>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- RODAPÉ -->
+
+  <footer>
+
+    <p>
+      <strong>
+        👁️ Visão & Acessibilidade
+      </strong>
+    </p>
+
+    <p>
+      Projeto educativo sobre visão,
+      seus problemas e acessibilidade.
+    </p>
+
+    <p>
+      © 2026 - Projeto desenvolvido pela equipe.
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    /* TAMANHO DA FONTE */
+
+    let tamanhoFonte = 18;
+
+    function aumentarFonte() {
+
+      if (tamanhoFonte < 28) {
+
+        tamanhoFonte += 2;
+
+        document.body.style.fontSize =
+          tamanhoFonte + "px";
+
+        somTecla("soft");
+      }
+
+    }
+
+
+    function diminuirFonte() {
+
+      if (tamanhoFonte > 14) {
+
+        tamanhoFonte -= 2;
+
+        document.body.style.fontSize =
+          tamanhoFonte + "px";
+
+        somTecla("soft");
+      }
+
+    }
+
+
+    /* CONTRASTE */
+
+    function ativarContraste() {
+
+      document.body.classList.toggle(
+        "alto-contraste"
+      );
+
+      somTecla("soft");
+    }
+
+
+    /* LEITURA */
+
+    function lerPagina() {
+
+      if ("speechSynthesis" in window) {
+
+        speechSynthesis.cancel();
+
+        const texto =
+          document.querySelector("main").innerText;
+
+        const fala =
+          new SpeechSynthesisUtterance(texto);
+
+        fala.lang = "pt-BR";
+
+        fala.rate = 0.9;
+
+        fala.pitch = 1;
+
+        speechSynthesis.speak(fala);
+
+      } else {
+
+        alert(
+          "Seu navegador não possui leitura em voz alta."
+        );
+
+      }
+
+    }
+
+
+    function pararLeitura() {
+
+      if ("speechSynthesis" in window) {
+
+        speechSynthesis.cancel();
+
+      }
+
+    }
+
+
+    /* =========================
+       SOM ASMR DE TECLADO
+       ========================= */
+
+    let audioContext = null;
+
+    let asmrLigado = false;
+
+    let volumeASMR = 0.04;
+
+
+    function iniciarAudio() {
+
+      if (!audioContext) {
+
+        audioContext =
+          new (
+            window.AudioContext ||
+            window.webkitAudioContext
+          )();
+
+      }
+
+      if (
+        audioContext.state ===
+        "suspended"
+      ) {
+
+        audioContext.resume();
+
+      }
+
+    }
+
+
+    function somTecla(tipo = "normal") {
+
+      if (!asmrLigado) {
+        return;
+      }
+
+      iniciarAudio();
+
+      const agora =
+        audioContext.currentTime;
+
+
+      const oscilador =
+        audioContext.createOscillator();
+
+
+      const ganho =
+        audioContext.createGain();
+
+
+      const filtro =
+        audioContext.createBiquadFilter();
+
+
+      /*
+        Frequência baixa para produzir
+        um som discreto e relaxante.
+      */
+
+      oscilador.type = "sine";
+
+      if (tipo === "soft") {
+
+        oscilador.frequency.value = 150;
+
+      } else {
+
+        oscilador.frequency.value =
+          110 + Math.random() * 60;
+
+      }
+
+
+      filtro.type = "lowpass";
+
+      filtro.frequency.value = 1000;
+
+
+      ganho.gain.setValueAtTime(
+        0.0001,
+        agora
+      );
+
+
+      ganho.gain.exponentialRampToValueAtTime(
+        Math.max(volumeASMR, 0.001),
+        agora + 0.005
+      );
+
+
+      ganho.gain.exponentialRampToValueAtTime(
+        0.0001,
+        agora + 0.07
+      );
+
+
+      oscilador
+        .connect(filtro);
+
+      filtro
+        .connect(ganho);
+
+      ganho
+        .connect(audioContext.destination);
+
+
+      oscilador.start(agora);
+
+      oscilador.stop(
+        agora + 0.08
+      );
+
+    }
+
+
+    /* LIGAR / DESLIGAR ASMR */
+
+    function alternarASMR() {
+
+      asmrLigado =
+        !asmrLigado;
+
+
+      const botao =
+        document.getElementById(
+          "botaoASMR"
+        );
+
+
+      if (asmrLigado) {
+
+        iniciarAudio();
+
+        botao.textContent =
+          "⌨️ ASMR ligado";
+
+        somTecla("soft");
+
+      } else {
+
+        botao.textContent =
+          "⌨️ ASMR desligado";
+
+      }
+
+    }
+
+
+    /* VOLUME */
+
+    document
+      .getElementById("volumeASMR")
+      .addEventListener(
+        "input",
+        function() {
+
+          volumeASMR =
+            Number(this.value);
+
+        }
+      );
+
+
+    /* TECLADO */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.ctrlKey ||
+          event.altKey ||
+          event.metaKey ||
+          event.repeat
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          event.key.length === 1 ||
+          event.key === "Backspace" ||
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          somTecla();
+
+        }
+
+      }
+    );
+
+
+    /* CLIQUES */
+
+    document.addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          event.target.closest(
+            "button, a"
+          )
+        ) {
+
+          somTecla("soft");
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>

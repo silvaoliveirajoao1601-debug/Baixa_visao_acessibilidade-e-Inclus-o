@@ -1,0 +1,524 @@
+/* ================================
+   SITE: OLHAR E BAIXA VISÃO
+   Criadores: Felipe Simão,
+   João Pietro e Perdo Hendrick
+================================ */
+
+/* Cores principais */
+:root {
+    --fundo: #f4f8ff;
+    --branco: #ffffff;
+    --texto: #17233b;
+    --texto-suave: #52627a;
+
+    --azul: #3157c8;
+    --azul-escuro: #263f9f;
+
+    --verde: #19a89a;
+    --verde-escuro: #168c84;
+
+    --dourado: #f4b942;
+
+    --borda: #d7e1f2;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Página */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.7;
+}
+
+/* ================================
+   CABEÇALHO
+================================ */
+
+header {
+    background: linear-gradient(
+        135deg,
+        var(--azul-escuro),
+        var(--verde)
+    );
+
+    color: white;
+    padding: 25px 7%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--dourado);
+}
+
+/* ================================
+   ÁREA PRINCIPAL
+================================ */
+
+.hero {
+    padding: 70px 7%;
+
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 40px;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #edf5ff,
+        #e5fbf7
+    );
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    margin-bottom: 20px;
+    color: var(--azul-escuro);
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: var(--texto-suave);
+    max-width: 700px;
+}
+
+/* Barras decorativas */
+
+.decoracao {
+    display: flex;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.decoracao span {
+    width: 48px;
+    height: 7px;
+    border-radius: 20px;
+}
+
+.decoracao .azul {
+    background: var(--azul);
+}
+
+.decoracao .verde {
+    background: var(--verde);
+}
+
+.decoracao .dourado {
+    background: var(--dourado);
+}
+
+/* ================================
+   BOTÕES
+================================ */
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 20px;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    border: 2px solid var(--azul);
+    transition: 0.3s;
+}
+
+.btn.primary {
+    background: var(--azul);
+    color: white;
+}
+
+.btn.primary:hover {
+    background: var(--azul-escuro);
+    transform: translateY(-2px);
+}
+
+.btn.light {
+    background: white;
+    color: var(--azul);
+}
+
+.btn.light:hover {
+    background: #edf2ff;
+}
+
+/* ================================
+   ILUSTRAÇÃO DO OLHO
+================================ */
+
+.visual {
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 3px solid #c9d8f2;
+    border-radius: 28px;
+
+    padding: 35px;
+    text-align: center;
+
+    box-shadow:
+        0 18px 45px rgba(24, 59, 103, 0.12);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.eye {
+    font-size: 6rem;
+}
+
+.iris-ring {
+    width: 130px;
+    height: 130px;
+
+    margin: -35px auto 20px;
+
+    border: 14px solid var(--verde);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 10px rgba(244, 185, 66, 0.33),
+        inset 0 0 0 8px rgba(49, 87, 200, 0.2);
+}
+
+/* ================================
+   CONTEÚDO
+================================ */
+
+main {
+    max-width: 1180px;
+    margin: auto;
+    padding: 55px 7%;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: var(--azul-escuro);
+}
+
+.lead {
+    color: var(--texto-suave);
+}
+
+/* ================================
+   CARDS
+================================ */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--branco);
+
+    padding: 25px;
+
+    border-radius: 16px;
+    border: 1px solid var(--borda);
+
+    box-shadow:
+        0 10px 28px rgba(49, 87, 200, 0.08);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 35px rgba(49, 87, 200, 0.15);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--verde-escuro);
+}
+
+.card p {
+    color: var(--texto-suave);
+}
+
+/* ================================
+   CRIADORES
+================================ */
+
+.creator {
+    background: #fff7df;
+
+    border-left: 7px solid var(--dourado);
+
+    padding: 25px;
+
+    border-radius: 14px;
+}
+
+.creator strong {
+    font-size: 1.2rem;
+}
+
+/* ================================
+   ÁREA DE ACESSIBILIDADE
+================================ */
+
+.access {
+    background: linear-gradient(
+        135deg,
+        var(--azul-escuro),
+        var(--verde-escuro)
+    );
+
+    color: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 35px rgba(38, 63, 159, 0.2);
+}
+
+.access h2 {
+    color: white;
+}
+
+/* ================================
+   CAIXA DE TEXTO
+================================ */
+
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+
+    border: 2px solid var(--borda);
+    border-radius: 10px;
+
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: 3px solid rgba(49, 87, 200, 0.3);
+}
+
+/* ================================
+   ALTO CONTRASTE
+================================ */
+
+body.high-contrast {
+    --fundo: #000000;
+    --branco: #000000;
+    --texto: #ffffff;
+    --texto-suave: #ffffff;
+
+    --azul: #ffff00;
+    --azul-escuro: #000000;
+
+    --verde: #00ffff;
+    --verde-escuro: #00ffff;
+
+    --dourado: #ffffff;
+
+    --borda: #ffffff;
+
+    background: #000;
+    color: #fff;
+}
+
+body.high-contrast header {
+    background: #000;
+    border-bottom: 3px solid white;
+}
+
+body.high-contrast .hero {
+    background: #000;
+}
+
+body.high-contrast .hero h1,
+body.high-contrast h2 {
+    color: #ffff00;
+}
+
+body.high-contrast .hero p,
+body.high-contrast .card p {
+    color: white;
+}
+
+body.high-contrast .card,
+body.high-contrast .visual {
+    background: #000;
+    border-color: white;
+}
+
+body.high-contrast .card h3 {
+    color: #00ffff;
+}
+
+body.high-contrast .btn.primary {
+    background: #ffff00;
+    color: #000;
+}
+
+body.high-contrast .btn.light {
+    background: #000;
+    color: #ffff00;
+    border-color: #ffff00;
+}
+
+/* ================================
+   BOTÃO VOLTAR AO TOPO
+================================ */
+
+.top {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--dourado);
+    color: #111;
+
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.top:hover {
+    transform: scale(1.1);
+}
+
+/* ================================
+   RODAPÉ
+================================ */
+
+footer {
+    background: #111a2e;
+    color: #dce4f2;
+
+    text-align: center;
+
+    padding: 30px 7%;
+}
+
+/* ================================
+   RESPONSIVIDADE
+================================ */
+
+@media (max-width: 800px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 50px 6%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Celulares pequenos */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 40px 5%;
+    }
+
+    main {
+        padding: 40px 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .visual {
+        padding: 25px;
+    }
+
+    .eye {
+        font-size: 4.5rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+        width: 100%;
+    }
+}
